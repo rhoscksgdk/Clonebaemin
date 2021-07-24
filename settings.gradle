@@ -1,0 +1,2 @@
+rootProject.name = "Clonebaemin"
+include ':app'
