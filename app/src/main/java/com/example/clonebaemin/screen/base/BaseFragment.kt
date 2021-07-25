@@ -11,6 +11,7 @@ import androidx.viewbinding.ViewBinding
 import kotlinx.coroutines.Job
 
 abstract class BaseFragment<VM:BaseViewModel, VB: ViewBinding>:Fragment() {
+
     abstract val viewModel:VM
 
     protected lateinit var binding: VB
@@ -18,6 +19,17 @@ abstract class BaseFragment<VM:BaseViewModel, VB: ViewBinding>:Fragment() {
     abstract fun getViewBinding():VB
 
     private lateinit var fetchJob: Job
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = getViewBinding()
+        setContentView(binding.root)
+        initState()
+    }
+
+    private fun setContentView(root: View) {
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
