@@ -1,5 +1,7 @@
 package com.example.clonebaemin.widget.adapter
 
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.ViewGroup
 import android.widget.ListAdapter
 import com.example.clonebaemin.model.Model
@@ -15,10 +17,17 @@ class ModelRecyclerAdapter<M: Model, VM: BaseViewModel>(
     private val adapterListener: AdapterListener
     ):ListAdapter<Model, ModelViewHolder<M>>(Model.DIFF_CALLBACK) {
 
-        override fun onCreateViewHolder(parent:ViewGroup, viewType:Int):ModelViewHolder<M>{
+    override fun getItemCount():Int = modelList.size
+
+    override fun getItemViewType(position: Int):Int = modelList[position].type.ordinal
+
+    override fun onCreateViewHolder(parent:ViewGroup, viewType:Int):ModelViewHolder<M>{
 
         }
 
+    override fun onBindViewHolder(holder: ModelViewHolder<M>,position:Int){
+
+    }
 
 
 }
