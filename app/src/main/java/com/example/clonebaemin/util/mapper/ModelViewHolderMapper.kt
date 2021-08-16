@@ -10,6 +10,8 @@ import com.example.clonebaemin.util.provider.ResourceProvider
 import com.example.clonebaemin.widget.adapter.viewholder.ModelViewHolder
 
 object ModelViewHolderMapper {
+
+    @Suppress("UNCHECKED_CAST")
     fun <M: Model>map(
         parent:ViewGroup,
         type:CellType,
@@ -18,9 +20,7 @@ object ModelViewHolderMapper {
     ):ModelViewHolder<M>{
         val inflater = LayoutInflater.from(parent.context)
         val viewHolder = when(type){
-            CellType.EMPTY_CELL -> ModelViewHolder //Todo model// (
-
-            )
+            CellType.EMPTY_CELL ->
         }
         return viewHolder as ModelViewHolder<M>
     }
